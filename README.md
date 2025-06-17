@@ -1,76 +1,65 @@
-# Encontrando o Maior Bloco de '1's em uma Tabela
+```markdown
+# 📐 Maior Retângulo Binário
 
-Imagine que você tem uma tabela cheia de quadradinhos marcados com `'1'` (preenchido) ou `'0'` (vazio).  
-(Essa tabela pode ser chamada de matriz, mas vamos tratá-la como "tabela" para facilitar a compreensão.)
+Este projeto foi desenvolvido como parte de um desafio técnico do processo seletivo para a **Atech**, empresa do grupo Embraer. O objetivo é implementar uma solução eficiente, em Java, para identificar a maior área retangular composta apenas por `'1'`s em uma matriz binária.
 
-Nosso objetivo é encontrar o **maior bloco retangular** que seja formado apenas por quadradinhos `'1'`.  
-No final, precisamos saber **qual é a área** desse maior bloco.
+## 🎯 Objetivo do Desafio Técnico
 
----
+Implementar um algoritmo que, dado uma matriz binária (`char[][]`), identifique a maior área possível formada apenas por `'1'`s consecutivos, considerando regiões retangulares.
 
-### 💡 Exemplo:
+## 💡 Descrição da Solução
 
-| Linha | Tabela          | Alturas acumuladas por coluna |
-|-------|------------------|-------------------------------|
-| 1     | 1 0 1 0 0        | [1, 0, 1, 0, 0]               |
-| 2     | 1 0 1 1 1        | [2, 0, 2, 1, 1]               |
-| 3     | 1 1 1 1 1        | [3, 1, 3, 2, 2]               |
-| 4     | 1 0 0 1 0        | [4, 0, 0, 3, 0]               |
+A cada linha da matriz, o algoritmo constrói um histograma com base na altura de `'1'`s consecutivos em cada coluna. Com esse histograma, calcula-se a maior área retangular possível para aquela linha. Esse processo se repete para todas as linhas. A complexidade do algoritmo é O(N²) por linha, oferecendo uma boa performance para matrizes moderadamente grandes.
 
+## 🛠 Tecnologias Utilizadas
 
+- Java 17 (ou compatível)
+- Nenhuma biblioteca externa
 
-Nesse exemplo, o maior bloco de `'1'` que conseguimos formar tem uma **área de 6**.
+## ▶️ Como Executar
 
----
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/maior-retangulo-binario.git
+   ```
 
-## Acumulando Blocos Por Coluna  
-### Usando Um Contador de Altura Para Cada Linha da Tabela
+2. Compile e execute:
+   ```bash
+   javac MaiorRetangulo.java
+   java MaiorRetangulo
+   ```
 
-Para encontrar a solução, lemos a tabela **linha por linha**, de cima para baixo.  
-A cada linha, olhamos para cada coluna separadamente e **contamos quantos `'1'` seguidos** aparecem, de cima para baixo.
+3. Saída esperada:
+   ```
+   Maior área: 6
+   ```
 
-- Se encontramos um `'1'`, somamos 1 à contagem daquela coluna.
-- Se encontramos um `'0'`, a contagem daquela coluna volta a zero (pois ele interrompe a sequência de `'1'`).
+## 📥 Entrada
 
-Isso nos dá a "**altura**" de `'1'` contínuos para cada coluna em cada linha.
+A matriz é definida diretamente no método `main`, no formato `char[][]`, utilizando `'0'`s e `'1'`s.
 
-| Linha | Tabela         | Alturas para cada coluna     |
-|-------|----------------|------------------------------|
-| 1     | 1 0 1 0 0      | [1, 0, 1, 0, 0]              |
-| 2     | 1 0 1 1 1      | [2, 0, 2, 1, 1]              |
-| 3     | 1 1 1 1 1      | [3, 1, 3, 2, 2]              |
-| 4     | 1 0 0 1 0      | [4, 0, 0, 3, 0]              |
+## 📤 Saída
 
----
+A aplicação imprime no terminal o valor inteiro correspondente à maior área retangular composta apenas por `'1'`s consecutivos.
 
-## Calculando a Maior Área em Cada Linha
+## 🧪 Exemplo
 
-Depois de definir as alturas para a linha atual, analisamos coluna por coluna.  
-Cada coluna com altura maior que zero pode ser a **base de um retângulo**.
+Entrada:
+```java
+char[][] matriz = {
+    {'1','0','1','0','0'},
+    {'1','0','1','1','1'},
+    {'1','1','1','1','1'},
+    {'1','0','0','1','0'}
+};
+```
 
-A partir da coluna atual, tentamos **estender o retângulo** para a esquerda e para a direita, incluindo apenas colunas com **altura igual ou maior** que a altura atual.
+Saída:
+```
+Maior área: 6
+```
 
-Com isso, calculamos a **área = altura × largura**, e guardamos a maior encontrada até o momento.
+## 📄 Licença
 
----
-
-## Por Que Essa Abordagem Funciona?
-
-Essa estratégia é eficaz porque **transforma um problema 2D complexo**  
-(em busca do maior retângulo de `'1'`s) em **vários problemas 1D mais simples**,  
-(analisar um histograma de alturas por linha).
-
-Ao fazer isso para **cada linha** e guardar a maior área possível, garantimos que nenhuma solução seja perdida.
-
----
-
-## ✅ Conclusão
-
-Este algoritmo é uma forma **direta e eficaz** de resolver o problema:
-
-- Ele simula a contagem de `'1'` em cada coluna, linha por linha;
-- Usa essas contagens como "alturas" de prédios em um histograma;
-- Calcula o maior retângulo possível a partir dessas alturas;
-- E encontra a **maior área de `'1'`s** da tabela de forma clara e confiável.
-
----
+Uso exclusivamente educacional e demonstrativo, com fins de avaliação técnica.
+```
