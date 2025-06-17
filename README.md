@@ -12,7 +12,7 @@ Implementar um algoritmo que, dada uma matriz binária (`char[][]`), identifique
 
 ## 💡 Descrição da Solução
 
-Para cada linha da matriz, o algoritmo analisa a altura das sequências de '1's em cada coluna. Com base nessas alturas, ele descobre a maior área retangular possível para aquela linha. Esse processo é repetido para todas as linhas. O tempo de processamento é de O(N²) por linha.
+Para cada linha da matriz, o algoritmo analisa a altura das sequências de '1's em cada coluna para descobrir a maior área retangular possível naquela linha. Esse processo se repete para todas as linhas. O tempo para processar cada linha aumenta rapidamente com o tamanho dela, mas o desempenho geral é bom para matrizes de tamanho moderado.
 
 ---
 
