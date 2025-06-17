@@ -64,7 +64,7 @@ char[][] matriz = {
 Saída:
 
 Maior área: 6
-
+```
 
 
 
