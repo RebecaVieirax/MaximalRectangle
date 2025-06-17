@@ -68,7 +68,7 @@ Maior área: 6
 ```
 ## 📄 Licença
 
-Uso exclusivamente educacional e demonstrativo, com fins de avaliação técnica.
+Uso exclusivamente demonstrativo, com fins de avaliação técnica.
 
 
 
