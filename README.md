@@ -65,10 +65,6 @@ Saída:
 
 Maior área: 6
 
-```
-## 📄 Licença
-
-Uso exclusivamente demonstrativo, com fins de avaliação técnica.
 
 
 
