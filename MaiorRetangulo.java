@@ -1,53 +1,47 @@
 public class MaiorRetangulo {
 
     public static int maiorRetangulo(char[][] matriz) {
-        // Trata casos de matriz nula ou vazia
+        // Retorna 0 se a matriz for nula ou vazia.
         if (matriz == null || matriz.length == 0) {
             return 0;
         }
 
         int colunas = matriz[0].length;
-        // 'alturas' armazena a altura de '1's contínuos para cada coluna,
-        // como se fosse um histograma para a linha atual.
+        // 'alturas' guarda a altura de '1's contínuos para cada coluna.
         int[] alturas = new int[colunas];
-        int maiorArea = 0; // Armazena a maior área encontrada até agora
+        int maiorArea = 0; // Armazena a maior área encontrada.
 
-        // Itera sobre cada linha da matriz
+        // passa por cada linha da matriz.
         for (int linha = 0; linha < matriz.length; linha++) {
-            // Atualiza o array 'alturas' com base nos '1's da linha atual
+            // Atualiza as alturas com base na linha atual.
             for (int c = 0; c < colunas; c++) {
                 if (matriz[linha][c] == '1') {
-                    alturas[c]++; // Incrementa a altura se for '1'
+                    alturas[c]++; // Incrementa se for '1'.
                 } else {
-                    alturas[c] = 0; // Zera a altura se for '0' (interrompe a sequência)
+                    alturas[c] = 0; // Zera se for '0'.
                 }
             }
 
-            // Para cada linha, tratamos 'alturas' como um histograma e
-            // encontramos o maior retângulo dentro dele.
-            // Esta parte tem complexidade O(N^2) para cada linha.
+            // Para cada linha, calcula o maior retângulo usando as alturas como histograma.
             for (int i = 0; i < colunas; i++) {
-                // Se a altura for 0, não há retângulo para formar a partir desta coluna
                 if (alturas[i] == 0) {
-                    continue;
+                    continue; // Pula se a altura for 0.
                 }
 
                 int alturaAtual = alturas[i];
                 int larguraAtual = 1;
 
-                // Expande para a esquerda: encontra quantas colunas à esquerda
-                // têm altura maior ou igual à 'alturaAtual'.
+                // Expande para a esquerda.
                 for (int j = i - 1; j >= 0 && alturas[j] >= alturaAtual; j--) {
                     larguraAtual++;
                 }
 
-                // Expande para a direita: encontra quantas colunas à direita
-                // têm altura maior ou igual à 'alturaAtual'.
+                // Expande para a direita.
                 for (int j = i + 1; j < colunas && alturas[j] >= alturaAtual; j++) {
                     larguraAtual++;
                 }
 
-                // Calcula a área do retângulo formado e atualiza a maior área geral
+                // Calcula e atualiza a maior área.
                 int areaAtual = alturaAtual * larguraAtual;
                 if (areaAtual > maiorArea) {
                     maiorArea = areaAtual;
@@ -55,8 +49,7 @@ public class MaiorRetangulo {
             }
         }
 
-        return maiorArea; // Retorna a maior área encontrada em toda a matriz
-    }
+        return maiorArea; 
 
     public static void main(String[] args) {
         char[][] matriz = {
