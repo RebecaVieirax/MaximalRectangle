@@ -27,7 +27,7 @@ A cada linha da matriz, o algoritmo constrói um histograma com base na altura d
 
 1.  Clone o repositório:
     ```bash
-    git clone [https://github.com/seu-usuario/maior-retangulo-binario.git](https://github.com/seu-usuario/maior-retangulo-binario.git)
+    git clone [https://github.com/seu-usuario/maior-retangulo-binario.git](https://github.com/RebecaVieirax/MaximalRectangle.git)
     ```
 
 2.  Compile e execute:
