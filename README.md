@@ -25,10 +25,9 @@ A cada linha da matriz, o algoritmo constrói um histograma com base na altura d
 
 ## ▶️ Como Executar
 
-1.  Clone o repositório:
-    ```bash
-   Git clone https://github.com/RebecaVieirax/MaximalRectangle.git
-    ```
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/RebecaVieirax/MaximalRectangle.git
 
 2.  Compile e execute:
     ```bash
